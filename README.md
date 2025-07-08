@@ -9,4 +9,4 @@
 2. Navigate to the `Ex#1` folder.
 3. Split terminal.
 4. Run `server.py` in the first terminal.
-5. Run `client.py` in thge second terminal.
+5. Run `client.py` in the second terminal.
