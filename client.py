@@ -1,14 +1,22 @@
 import socket
-from generate_string import main as generate_string
+from generate_string import create_strings
+import sys
 
 
 def main() -> None:
     # Generate the input file with random strings
-    generate_string()
-    host = "127.0.0.1"
-    port = 5000
-    input = "strings.txt"
-    output = "results.txt"
+    if len(sys.argv) > 1:
+        host = sys.argv[1]
+        port = int(sys.argv[2])
+        string_count = int(sys.argv[3])
+    else:
+        host = "127.0.0.1"
+        port = 5000
+        string_count = 1000000
+        
+    input_f = "chains.txt"
+    output_f = "results.txt"
+    create_strings(string_count)
     
     # Create a TCP socket
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -16,8 +24,8 @@ def main() -> None:
     sock.connect((host, port))
     
     # Open the input file for reading and output file for writing
-    with open(input, "r", encoding="utf-8") as  fin, \
-        open(output, "w", encoding="utf-8") as fout:
+    with open(input_f, "r", encoding="utf-8") as  fin, \
+        open(output_f, "w", encoding="utf-8") as fout:
             # For each line in the input file
             for line in fin:
                 # Send the string to the server
