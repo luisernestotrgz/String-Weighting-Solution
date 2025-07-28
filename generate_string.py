@@ -28,15 +28,8 @@ def generate_string(min_len: int=50, max_len: int=100, min_spaces: int=3, max_sp
     # Join the list into a single string and return
     return ''.join(chars)
 
-def main() -> None:
-    # Number of strings to generate
-    strings_q: int = 1000000
-    # Output file name
-    file_name: str = "strings.txt"
-    
+def  create_strings(strings_q: int = 1000000) -> None:
+    file_name = "chains.txt"
     with open(file_name, "w", encoding="utf-8") as f:
         for _ in range(strings_q):
             f.write(generate_string() + "\n")
-    
-if __name__ == "__main__":
-    main()

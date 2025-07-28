@@ -2,7 +2,7 @@ import logging
 import socket
 import time
 import re
-
+import sys
 
 def setup_logging(logfile: str="server.log") -> None:
     """
@@ -76,8 +76,12 @@ def run_server(host: str, port: int) -> None:
     sock.close()
 
 def main() -> None:
-    host = "127.0.0.1"
-    port = 5000
+    if len(sys.argv) > 1:
+        host = sys.argv[1]
+        port = int(sys.argv[2])
+    else:
+        host = "127.0.0.1"
+        port = 5000
     
     run_server(host, port)
 
