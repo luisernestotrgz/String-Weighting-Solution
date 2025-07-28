@@ -8,5 +8,5 @@
 1. Unzip `Solution.zip`.
 2. Navigate to the `Ex#1` folder.
 3. Split terminal.
-4. Run `server.py` in the first terminal.
-5. Run `client.py` in the second terminal.
+4. Run `server.py` (host and port optional) in the first terminal.
+5. Run `client.py` (number of strings, host and port in case you specified in step 4) in the second terminal.
